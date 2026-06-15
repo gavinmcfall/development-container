@@ -1,0 +1,71 @@
+# Denylist for the WSL2 -> devpod HOME seed.
+#   rsync -aHAX --exclude-from=config/seed-excludes.txt ~/ <home-pvc>/
+# Patterns are rsync filter patterns, relative to $HOME. Everything NOT matched
+# here is seeded — so every CLI's auth/config/data + ~/.local/bin tools persist.
+# Goal: drop the big REGENERABLE caches; keep real state + toolchains (toolchains
+# must ride along because the whole-home PVC mount shadows the image's copies).
+
+# --- stale local copies (live data is elsewhere) ---
+.mempalace/palace/        # 8G local drawer store; live MemPalace = mempalace.nerdz.cloud
+.kindle-backup/           # 1.4G book data, re-fetchable
+
+# --- regenerable user-installed python/node libs (reinstall in-pod) ---
+.local/lib/               # 8.5G pip --user / pipx site-packages
+.local/share/pnpm/
+.local/share/NuGet/
+.local/share/TabNine/
+.local/share/powershell/
+.local/share/GitKrakenCLI/
+.local/share/cursor-agent/
+
+# --- pure caches (regenerable, huge) ---
+.cache/
+.npm/
+.nuget/
+.yarn/cache/
+.bun/install/cache/
+.pnpm-store/
+
+# --- language/registry caches inside toolchains (keep the toolchains, drop caches) ---
+.cargo/registry/
+.cargo/git/
+.rustup/downloads/
+.rustup/tmp/
+
+# --- .NET (cut from the image; state not needed) ---
+.dotnet/
+.net/
+.nuget/
+
+# --- editor/remote server caches (regenerated on connect) ---
+.vscode-server/
+.vscode-remote-containers/
+.cursor-server/
+
+# --- model / scraper / misc caches ---
+.EasyOCR/
+.imageio/
+.mintlify/
+.voicemode/
+.wdm/
+.nv/
+.wrangler/
+
+# --- shell compdump churn + machine-specific ---
+.zcompdump*
+.motd_shown
+.sudo_as_admin_successful
+.bash_history
+.python_history
+.lesshst
+.rediscli_history
+
+# --- per-repo regenerable bulk (also used by the code-PVC seed) ---
+**/node_modules/
+**/.venv/
+**/__pycache__/
+**/target/
+**/dist/
+**/build/
+**/.next/
+**/.turbo/
