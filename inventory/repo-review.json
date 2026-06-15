@@ -1,0 +1,782 @@
+[
+{
+"parent": "(root)",
+"name": "home-ops",
+"mb": 1261,
+"last": "2026-06-12",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".yaml",
+"rel": "home-ops"
+},
+{
+"parent": "(root)",
+"name": "scratch",
+"mb": 780,
+"last": "2026-06-15",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".md",
+"rel": "scratch"
+},
+{
+"parent": "(root)",
+"name": "Homelab",
+"mb": 61,
+"last": "2026-03-10",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yaml",
+"rel": "Homelab"
+},
+{
+"parent": "(root)",
+"name": "cortex",
+"mb": 58,
+"last": "2026-05-19",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".md",
+"rel": "cortex"
+},
+{
+"parent": "(root)",
+"name": "helm-charts",
+"mb": 29,
+"last": "2026-03-30",
+"owner": "bjw-s-labs",
+"claude": "no",
+"lang": ".yaml",
+"rel": "helm-charts"
+},
+{
+"parent": "(root)",
+"name": "bjw-s-helm",
+"mb": 28,
+"last": "2025-05-16",
+"owner": "bjw-s",
+"claude": "no",
+"lang": ".yaml",
+"rel": "bjw-s-helm"
+},
+{
+"parent": "(root)",
+"name": "bjw-s-labs-common-3.7.3",
+"mb": 28,
+"last": "2025-05-16",
+"owner": "bjw-s-labs",
+"claude": "no",
+"lang": ".yaml",
+"rel": "bjw-s-labs-common-3.7.3"
+},
+{
+"parent": "(root)",
+"name": "bjw-s-labs-helm",
+"mb": 28,
+"last": "2025-10-15",
+"owner": "bjw-s-labs",
+"claude": "no",
+"lang": ".yaml",
+"rel": "bjw-s-labs-helm"
+},
+{
+"parent": "(root)",
+"name": "cluster-template",
+"mb": 9,
+"last": "2026-04-19",
+"owner": "onedr0p",
+"claude": "no",
+"lang": ".yaml",
+"rel": "cluster-template"
+},
+{
+"parent": "(root)",
+"name": "brightly-wired",
+"mb": 5,
+"last": "2026-04-20",
+"owner": "Brightly-Wired",
+"claude": "no",
+"lang": ".tsx",
+"rel": "brightly-wired"
+},
+{
+"parent": "(root)",
+"name": "brightly-wired.old",
+"mb": 3,
+"last": "2026-04-20",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "brightly-wired.old"
+},
+{
+"parent": "(root)",
+"name": "images",
+"mb": 2,
+"last": "2024-12-13",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": "-",
+"rel": "images"
+},
+{
+"parent": "(root)",
+"name": "containers",
+"mb": 1,
+"last": "2025-04-15",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": "-",
+"rel": "containers"
+},
+{
+"parent": "Development",
+"name": "go",
+"mb": 1,
+"last": "2023-12-12",
+"owner": "gavinmcfall",
+"claude": "fuzzy",
+"lang": ".md",
+"rel": "Development/go"
+},
+{
+"parent": "Dopamine Racing",
+"name": "dopamine-racing",
+"mb": 55,
+"last": "2026-05-19",
+"owner": "Dopamine-Racing",
+"claude": "exact",
+"lang": ".md",
+"rel": "Dopamine Racing/dopamine-racing"
+},
+{
+"parent": "Forked-Repos",
+"name": "Seelen",
+"mb": 535,
+"last": "2026-02-02",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yml",
+"rel": "Forked-Repos/Seelen"
+},
+{
+"parent": "Forked-Repos",
+"name": "games-standalone",
+"mb": 30,
+"last": "2026-01-27",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "Forked-Repos/games-standalone"
+},
+{
+"parent": "Realmstack",
+"name": "Realmstack",
+"mb": 632,
+"last": "2026-06-14",
+"owner": "Realmstacks",
+"claude": "exact",
+"lang": ".md",
+"rel": "Realmstack/Realmstack"
+},
+{
+"parent": "cloned-repos",
+"name": "pokedextracker.com",
+"mb": 47,
+"last": "2024-01-20",
+"owner": "pokedextracker",
+"claude": "no",
+"lang": ".tsx",
+"rel": "cloned-repos/pokedextracker.com"
+},
+{
+"parent": "cloned-repos",
+"name": "Kindle_download_helper",
+"mb": 4,
+"last": "2025-02-15",
+"owner": "yihong0618",
+"claude": "no",
+"lang": ".py",
+"rel": "cloned-repos/Kindle_download_helper"
+},
+{
+"parent": "cloned-repos",
+"name": "homelablabelmaker",
+"mb": 3,
+"last": "2020-07-23",
+"owner": "BShurilla",
+"claude": "no",
+"lang": ".css",
+"rel": "cloned-repos/homelablabelmaker"
+},
+{
+"parent": "cloned-repos",
+"name": "ebook-downloader",
+"mb": 1,
+"last": "2024-09-16",
+"owner": "kevindurb",
+"claude": "no",
+"lang": ".js",
+"rel": "cloned-repos/ebook-downloader"
+},
+{
+"parent": "code",
+"name": "openroom",
+"mb": 1128,
+"last": "2026-04-22",
+"owner": "dhruvyad",
+"claude": "exact",
+"lang": ".ts",
+"rel": "code/openroom"
+},
+{
+"parent": "flux-ws",
+"name": "pull",
+"mb": 39,
+"last": "2025-11-09",
+"owner": "(other)",
+"claude": "no",
+"lang": ".yaml",
+"rel": "flux-ws/pull"
+},
+{
+"parent": "flux-ws",
+"name": "default",
+"mb": 27,
+"last": "2025-11-08",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yaml",
+"rel": "flux-ws/default"
+},
+{
+"parent": "mcp",
+"name": "talos",
+"mb": 44,
+"last": "2025-10-14",
+"owner": "ry-ops",
+"claude": "no",
+"lang": ".md",
+"rel": "mcp/talos"
+},
+{
+"parent": "mcp",
+"name": "eraser",
+"mb": 1,
+"last": "2025-08-05",
+"owner": "whiteprompt",
+"claude": "no",
+"lang": ".md",
+"rel": "mcp/eraser"
+},
+{
+"parent": "my_other_repos",
+"name": "datap4k-mcp",
+"mb": 6090,
+"last": "2026-04-09",
+"owner": "(other)",
+"claude": "no",
+"lang": ".rs",
+"rel": "my_other_repos/datap4k-mcp"
+},
+{
+"parent": "my_other_repos",
+"name": "fleet-manager",
+"mb": 3216,
+"last": "2026-06-07",
+"owner": "SC-Bridge",
+"claude": "exact",
+"lang": ".ts",
+"rel": "my_other_repos/fleet-manager"
+},
+{
+"parent": "my_other_repos",
+"name": "lootgoblin",
+"mb": 2607,
+"last": "2026-06-07",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".ts",
+"rel": "my_other_repos/lootgoblin"
+},
+{
+"parent": "my_other_repos",
+"name": "cdn-sync",
+"mb": 2383,
+"last": "2026-03-01",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".go",
+"rel": "my_other_repos/cdn-sync"
+},
+{
+"parent": "my_other_repos",
+"name": "temp",
+"mb": 745,
+"last": "2026-03-21",
+"owner": "gavinmcfall",
+"claude": "fuzzy",
+"lang": ".yaml",
+"rel": "my_other_repos/temp"
+},
+{
+"parent": "my_other_repos",
+"name": "mempalace",
+"mb": 580,
+"last": "2026-06-10",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".py",
+"rel": "my_other_repos/mempalace"
+},
+{
+"parent": "my_other_repos",
+"name": "storymode",
+"mb": 450,
+"last": "2026-04-11",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".ts",
+"rel": "my_other_repos/storymode"
+},
+{
+"parent": "my_other_repos",
+"name": "sc-control-mapper",
+"mb": 439,
+"last": "2026-02-20",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".tsx",
+"rel": "my_other_repos/sc-control-mapper"
+},
+{
+"parent": "my_other_repos",
+"name": "postcraft",
+"mb": 395,
+"last": "2026-05-15",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".ts",
+"rel": "my_other_repos/postcraft"
+},
+{
+"parent": "my_other_repos",
+"name": "lighthouse",
+"mb": 325,
+"last": "2026-06-13",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".md",
+"rel": "my_other_repos/lighthouse"
+},
+{
+"parent": "my_other_repos",
+"name": "liaison",
+"mb": 265,
+"last": "2026-03-26",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".ts",
+"rel": "my_other_repos/liaison"
+},
+{
+"parent": "my_other_repos",
+"name": "schema-gen",
+"mb": 232,
+"last": "2026-05-17",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yaml",
+"rel": "my_other_repos/schema-gen"
+},
+{
+"parent": "my_other_repos",
+"name": "nerdz-reading",
+"mb": 227,
+"last": "2026-06-07",
+"owner": "(none)",
+"claude": "exact",
+"lang": ".py",
+"rel": "my_other_repos/nerdz-reading"
+},
+{
+"parent": "my_other_repos",
+"name": "spyglass",
+"mb": 218,
+"last": "2026-06-09",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".md",
+"rel": "my_other_repos/spyglass"
+},
+{
+"parent": "my_other_repos",
+"name": "mangarr",
+"mb": 168,
+"last": "2026-06-15",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".go",
+"rel": "my_other_repos/mangarr"
+},
+{
+"parent": "my_other_repos",
+"name": "pelican-plugins",
+"mb": 112,
+"last": "2026-02-20",
+"owner": "gavinmcfall",
+"claude": "exact",
+"lang": ".md",
+"rel": "my_other_repos/pelican-plugins"
+},
+{
+"parent": "my_other_repos",
+"name": "SCLocalizationMergeTool",
+"mb": 100,
+"last": "2026-02-21",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/SCLocalizationMergeTool"
+},
+{
+"parent": "my_other_repos",
+"name": "ai_instructions",
+"mb": 90,
+"last": "2025-12-09",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/ai_instructions"
+},
+{
+"parent": "my_other_repos",
+"name": "dynamic-radarr-dash",
+"mb": 37,
+"last": "2025-12-10",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".tsx",
+"rel": "my_other_repos/dynamic-radarr-dash"
+},
+{
+"parent": "my_other_repos",
+"name": "Cheat Sheets",
+"mb": 31,
+"last": "2026-05-16",
+"owner": "(none)",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/Cheat Sheets"
+},
+{
+"parent": "my_other_repos",
+"name": "exportarr",
+"mb": 26,
+"last": "2025-12-09",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".go",
+"rel": "my_other_repos/exportarr"
+},
+{
+"parent": "my_other_repos",
+"name": "local-ai-stack",
+"mb": 21,
+"last": "2025-06-30",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yaml",
+"rel": "my_other_repos/local-ai-stack"
+},
+{
+"parent": "my_other_repos",
+"name": "voron2.4_01",
+"mb": 12,
+"last": "2024-12-31",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/voron2.4_01"
+},
+{
+"parent": "my_other_repos",
+"name": "deck-forge",
+"mb": 7,
+"last": "2026-01-21",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/deck-forge"
+},
+{
+"parent": "my_other_repos",
+"name": "agentic-config",
+"mb": 4,
+"last": "2026-04-02",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/agentic-config"
+},
+{
+"parent": "my_other_repos",
+"name": "claude-config",
+"mb": 4,
+"last": "2026-03-09",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/claude-config"
+},
+{
+"parent": "my_other_repos",
+"name": "containers",
+"mb": 4,
+"last": "2026-06-13",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".go",
+"rel": "my_other_repos/containers"
+},
+{
+"parent": "my_other_repos",
+"name": "kindle-backup",
+"mb": 4,
+"last": "2025-12-01",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".py",
+"rel": "my_other_repos/kindle-backup"
+},
+{
+"parent": "my_other_repos",
+"name": "ndb",
+"mb": 4,
+"last": "2026-02-02",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/ndb"
+},
+{
+"parent": "my_other_repos",
+"name": "ndb-backup",
+"mb": 4,
+"last": "2026-02-02",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/ndb-backup"
+},
+{
+"parent": "my_other_repos",
+"name": "LibraryLoom",
+"mb": 2,
+"last": "2025-11-21",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/LibraryLoom"
+},
+{
+"parent": "my_other_repos",
+"name": "abms",
+"mb": 2,
+"last": "2026-04-18",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/abms"
+},
+{
+"parent": "my_other_repos",
+"name": "cortex",
+"mb": 2,
+"last": "2026-05-19",
+"owner": "gavinmcfall",
+"claude": "fuzzy",
+"lang": ".md",
+"rel": "my_other_repos/cortex"
+},
+{
+"parent": "my_other_repos",
+"name": "tri-dimensional",
+"mb": 2,
+"last": "2024-05-31",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/tri-dimensional"
+},
+{
+"parent": "my_other_repos",
+"name": "defenestration",
+"mb": 1,
+"last": "2026-05-19",
+"owner": "gavinmcfall",
+"claude": "fuzzy",
+"lang": ".md",
+"rel": "my_other_repos/defenestration"
+},
+{
+"parent": "my_other_repos",
+"name": "dopamine-racing",
+"mb": 1,
+"last": "no-commits",
+"owner": "(none)",
+"claude": "fuzzy",
+"lang": "-",
+"rel": "my_other_repos/dopamine-racing"
+},
+{
+"parent": "my_other_repos",
+"name": "game",
+"mb": 1,
+"last": "2026-02-11",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/game"
+},
+{
+"parent": "my_other_repos",
+"name": "k8s-schemas",
+"mb": 1,
+"last": "2026-05-16",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yml",
+"rel": "my_other_repos/k8s-schemas"
+},
+{
+"parent": "my_other_repos",
+"name": "kait",
+"mb": 1,
+"last": "2025-12-07",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".sh",
+"rel": "my_other_repos/kait"
+},
+{
+"parent": "my_other_repos",
+"name": "n8n-workflows",
+"mb": 1,
+"last": "2025-09-29",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/n8n-workflows"
+},
+{
+"parent": "my_other_repos",
+"name": "plex-imdb-age-sync",
+"mb": 1,
+"last": "2024-02-20",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/plex-imdb-age-sync"
+},
+{
+"parent": "my_other_repos",
+"name": "satisfactory-mirror-buildables",
+"mb": 1,
+"last": "2026-01-20",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".md",
+"rel": "my_other_repos/satisfactory-mirror-buildables"
+},
+{
+"parent": "my_other_repos",
+"name": "seedboxapi",
+"mb": 1,
+"last": "2025-12-14",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".yaml",
+"rel": "my_other_repos/seedboxapi"
+},
+{
+"parent": "scbridge",
+"name": "tools",
+"mb": 7140,
+"last": "2026-06-06",
+"owner": "SC-Bridge",
+"claude": "fuzzy",
+"lang": ".py",
+"rel": "scbridge/tools"
+},
+{
+"parent": "scbridge",
+"name": "sc-blender-pipeline",
+"mb": 434,
+"last": "2026-03-26",
+"owner": "SC-Bridge",
+"claude": "no",
+"lang": ".py",
+"rel": "scbridge/sc-blender-pipeline"
+},
+{
+"parent": "scbridge",
+"name": "sc-bridge-sync",
+"mb": 165,
+"last": "2026-05-19",
+"owner": "SC-Bridge",
+"claude": "no",
+"lang": ".ts",
+"rel": "scbridge/sc-bridge-sync"
+},
+{
+"parent": "scbridge",
+"name": "sc-companion",
+"mb": 164,
+"last": "2026-04-11",
+"owner": "SC-Bridge",
+"claude": "no",
+"lang": ".go",
+"rel": "scbridge/sc-companion"
+},
+{
+"parent": "scbridge",
+"name": "SC-HUD",
+"mb": 2,
+"last": "2026-04-09",
+"owner": "SC-Bridge",
+"claude": "no",
+"lang": ".cs",
+"rel": "scbridge/SC-HUD"
+},
+{
+"parent": "scbridge",
+"name": "pulsenet-audio",
+"mb": 1,
+"last": "2026-04-20",
+"owner": "gavinmcfall",
+"claude": "no",
+"lang": ".py",
+"rel": "scbridge/pulsenet-audio"
+},
+{
+"parent": "scbridge",
+"name": "research-development",
+"mb": 1,
+"last": "2026-04-03",
+"owner": "SC-Bridge",
+"claude": "no",
+"lang": ".md",
+"rel": "scbridge/research-development"
+},
+{
+"parent": "tools",
+"name": "StarBreaker-rust",
+"mb": 466,
+"last": "2026-04-29",
+"owner": "diogotr7",
+"claude": "no",
+"lang": ".rs",
+"rel": "tools/StarBreaker-rust"
+}
+]

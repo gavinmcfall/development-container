@@ -1,0 +1,4 @@
+# Language runtime versions (match WSL2). Read by the Dockerfile / install scripts.
+# rust = rustup stable; uv = latest; python = system (3.12) + uv per-project.
+go: "1.22.0"
+node: "22.21.1"

@@ -1,0 +1,6 @@
+# Keep the build context lean — the Dockerfile only needs config/ + install/.
+.git
+inventory/
+*.md
+repo-move-map.txt
+.github/

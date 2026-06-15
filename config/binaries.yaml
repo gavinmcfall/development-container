@@ -1,0 +1,35 @@
+# Standalone binaries downloaded from release URLs (brew-equivalent tools, so the
+# image needs no linuxbrew). install/binaries.sh fetches each into /usr/local/bin.
+# {ARCH} -> dpkg --print-architecture (amd64/arm64). {KVER} -> latest kubectl.
+# kind: raw   = the URL is the executable itself.
+# kind: targz = tarball; .extract lists path(s) inside to install (basename kept).
+tools:
+  - name: kubectl
+    kind: raw
+    url: "https://dl.k8s.io/release/{KVER}/bin/linux/{ARCH}/kubectl"
+  - name: talosctl
+    kind: raw
+    url: "https://github.com/siderolabs/talos/releases/latest/download/talosctl-linux-{ARCH}"
+  - name: yq
+    kind: raw
+    url: "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_{ARCH}"
+  - name: k9s
+    kind: targz
+    url: "https://github.com/derailed/k9s/releases/latest/download/k9s_Linux_{ARCH}.tar.gz"
+    extract: [k9s]
+  - name: kubeconform
+    kind: targz
+    url: "https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-{ARCH}.tar.gz"
+    extract: [kubeconform]
+  - name: cilium
+    kind: targz
+    url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-{ARCH}.tar.gz"
+    extract: [cilium]
+  - name: age
+    kind: targz
+    url: "https://github.com/FiloSottile/age/releases/latest/download/age-v1.2.1-linux-{ARCH}.tar.gz"
+    extract: [age/age, age/age-keygen]
+  - name: talhelper
+    kind: targz
+    url: "https://github.com/budimanjojo/talhelper/releases/latest/download/talhelper_linux_{ARCH}.tar.gz"
+    extract: [talhelper]

@@ -1,0 +1,15 @@
+# Tools installed via their official install scripts (run as-is by install/scripts.sh).
+# One entry per tool; .cmd runs in /bin/sh. Keep to trusted vendor installers.
+installers:
+  - name: flux
+    cmd: "curl -fsSL https://fluxcd.io/install.sh | bash"
+  - name: helm
+    cmd: "curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash"
+  - name: starship
+    cmd: "curl -fsSL https://starship.rs/install.sh | sh -s -- -y"
+  - name: chezmoi
+    cmd: 'sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin'
+  - name: task
+    cmd: 'sh -c "$(curl -fsSL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin'
+  - name: kustomize
+    cmd: "curl -fsSL https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh | bash -s -- /usr/local/bin"

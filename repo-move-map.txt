@@ -1,0 +1,122 @@
+# Repo move map — WSL2 -> ~/code consolidation
+#
+# Rule (from Gavin's decisions): /home/gavin/code/<Group Folder>/<repo-name>
+#   - Group folders may contain spaces ("Home Ops", "SC Bridge", ...)
+#   - Repos keep their existing hyphenated names
+# Decisions applied: fleet-manager -> SC Bridge/SC-Bridge; cortex keep the
+#   bigger (/home/gavin/cortex), drop my_other_repos/cortex; Realmstack &
+#   Brightly Wired nest under their own group; ootgoblin typo -> lootgoblin.
+#
+# CAVEATS:
+#   - Spaces in paths: every script/CI must quote these. (Your choice.)
+#   - Do `scratch` LAST — this repo holds these very files + most session
+#     history; CCM will repoint a large number of history.jsonl entries.
+#   - openroom: code at ~/code/openroom but its Claude data is stranded at
+#     ~/scratch/openroom, so the CCM line migrates FROM ~/scratch/openroom.
+#   - Forks kept per your grouping (datap4k-mcp, StarBreaker-rust, openroom,
+#     Community Repos) are still re-clonable if you'd rather not carry them.
+#   - Run each `ccm migrate` with --dry-run first.
+#
+# ===== FINAL MOVE MAP  (oldpath  newpath) =====
+/home/gavin/home-ops "/home/gavin/code/Home Ops/home-ops"
+/home/gavin/my_other_repos/fleet-manager "/home/gavin/code/SC Bridge/SC-Bridge"
+/home/gavin/scbridge/SC-HUD "/home/gavin/code/SC Bridge/SC-HUD"
+/home/gavin/scbridge/pulsenet-audio "/home/gavin/code/SC Bridge/pulsenet-audio"
+/home/gavin/scbridge/research-development "/home/gavin/code/SC Bridge/research-development"
+/home/gavin/scbridge/sc-blender-pipeline "/home/gavin/code/SC Bridge/sc-blender-pipeline"
+/home/gavin/scbridge/sc-bridge-sync "/home/gavin/code/SC Bridge/sc-bridge-sync"
+/home/gavin/scbridge/sc-companion "/home/gavin/code/SC Bridge/sc-companion"
+/home/gavin/scbridge/tools "/home/gavin/code/SC Bridge/tools"
+/home/gavin/cloned-repos/Kindle_download_helper "/home/gavin/code/Community Repos/Kindle_download_helper"
+/home/gavin/cloned-repos/ebook-downloader "/home/gavin/code/Community Repos/ebook-downloader"
+/home/gavin/cloned-repos/homelablabelmaker "/home/gavin/code/Community Repos/homelablabelmaker"
+/home/gavin/cloned-repos/pokedextracker.com "/home/gavin/code/Community Repos/pokedextracker.com"
+"/home/gavin/Dopamine Racing/dopamine-racing" "/home/gavin/code/Dopamine Racing/dopamine-racing"
+/home/gavin/my_other_repos/lootgoblin /home/gavin/code/Lootgoblin/lootgoblin
+/home/gavin/Realmstack/Realmstack /home/gavin/code/Realmstack/Realmstack
+/home/gavin/cortex /home/gavin/code/Projects/cortex
+"/home/gavin/my_other_repos/Cheat Sheets" "/home/gavin/code/Projects/Cheat Sheets"
+/home/gavin/my_other_repos/LibraryLoom /home/gavin/code/Projects/LibraryLoom
+/home/gavin/my_other_repos/abms /home/gavin/code/Projects/abms
+/home/gavin/my_other_repos/agentic-config /home/gavin/code/Projects/agentic-config
+/home/gavin/my_other_repos/ai_instructions /home/gavin/code/Projects/ai_instructions
+/home/gavin/my_other_repos/cdn-sync /home/gavin/code/Projects/cdn-sync
+/home/gavin/my_other_repos/claude-config /home/gavin/code/Projects/claude-config
+/home/gavin/my_other_repos/containers /home/gavin/code/Projects/containers
+/home/gavin/my_other_repos/deck-forge /home/gavin/code/Projects/deck-forge
+/home/gavin/my_other_repos/mangarr /home/gavin/code/Projects/mangarr
+/home/gavin/my_other_repos/mempalace /home/gavin/code/Projects/mempalace
+/home/gavin/my_other_repos/exportarr /home/gavin/code/Projects/exportarr
+/home/gavin/my_other_repos/lighthouse /home/gavin/code/Projects/lighthouse
+/home/gavin/my_other_repos/spyglass /home/gavin/code/Projects/spyglass
+/home/gavin/my_other_repos/storymode /home/gavin/code/Projects/storymode
+/home/gavin/my_other_repos/tri-dimensional /home/gavin/code/Projects/tri-dimensional
+/home/gavin/my_other_repos/voron2.4_01 /home/gavin/code/Projects/voron2.4_01
+/home/gavin/my_other_repos/nerdz-reading /home/gavin/code/Projects/nerdz-reading
+/home/gavin/my_other_repos/nerdz /home/gavin/code/Nerdz/nerdz
+/home/gavin/brightly-wired "/home/gavin/code/Brightly Wired/brightly-wired"
+/home/gavin/brightly-wired.old "/home/gavin/code/Brightly Wired/brightly-wired.old"
+/home/gavin/my_other_repos/SCLocalizationMergeTool /home/gavin/code/Tools/SCLocalizationMergeTool
+/home/gavin/my_other_repos/datap4k-mcp /home/gavin/code/Tools/datap4k-mcp
+/home/gavin/my_other_repos/defenestration /home/gavin/code/Tools/defenestration
+/home/gavin/my_other_repos/dynamic-radarr-dash /home/gavin/code/Tools/dynamic-radarr-dash
+/home/gavin/my_other_repos/schema-gen /home/gavin/code/Tools/schema-gen
+/home/gavin/my_other_repos/seedboxapi /home/gavin/code/Tools/seedboxapi
+/home/gavin/my_other_repos/k8s-schemas /home/gavin/code/Tools/k8s-schemas
+/home/gavin/my_other_repos/pelican-plugins /home/gavin/code/Tools/pelican-plugins
+/home/gavin/my_other_repos/plex-imdb-age-sync /home/gavin/code/Tools/plex-imdb-age-sync
+/home/gavin/my_other_repos/satisfactory-mirror-buildables /home/gavin/code/Tools/satisfactory-mirror-buildables
+/home/gavin/my_other_repos/sc-control-mapper /home/gavin/code/Tools/sc-control-mapper
+/home/gavin/tools/StarBreaker-rust /home/gavin/code/Tools/StarBreaker-rust
+/home/gavin/my_other_repos/n8n-workflows /home/gavin/code/Tools/n8n-workflows
+/home/gavin/my_other_repos/ndb /home/gavin/code/Tools/ndb
+/home/gavin/my_other_repos/ndb-backup /home/gavin/code/Tools/ndb-backup
+/home/gavin/my_other_repos/kait /home/gavin/code/Tools/kait
+/home/gavin/my_other_repos/kindle-backup /home/gavin/code/Tools/kindle-backup
+/home/gavin/my_other_repos/liaison /home/gavin/code/Tools/liaison
+/home/gavin/code/openroom /home/gavin/code/Tools/openroom
+/home/gavin/my_other_repos/local-ai-stack /home/gavin/code/Tools/local-ai-stack
+/home/gavin/mcp/eraser /home/gavin/code/MCP/eraser
+/home/gavin/mcp/talos /home/gavin/code/MCP/talos
+/home/gavin/my_other_repos/postcraft /home/gavin/code/MCP/postcraft
+/home/gavin/scratch /home/gavin/code/scratch/scratch
+/home/gavin/Homelab /home/gavin/code/Homelab/Homelab
+/home/gavin/images /home/gavin/code/Images/images
+/home/gavin/my_other_repos/temp /home/gavin/code/Temp/temp
+
+# ===== repos with Claude data -> also run CCM =====
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/home-ops "/home/gavin/code/Home Ops/home-ops"   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/fleet-manager "/home/gavin/code/SC Bridge/SC-Bridge"   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/scbridge/tools "/home/gavin/code/SC Bridge/tools"   # fuzzy
+python3 ~/scratch/ccm/ccm.py migrate "/home/gavin/Dopamine Racing/dopamine-racing" "/home/gavin/code/Dopamine Racing/dopamine-racing"   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/lootgoblin /home/gavin/code/Lootgoblin/lootgoblin   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/Realmstack/Realmstack /home/gavin/code/Realmstack/Realmstack   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/cortex /home/gavin/code/Projects/cortex   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/mempalace /home/gavin/code/Projects/mempalace   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/lighthouse /home/gavin/code/Projects/lighthouse   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/spyglass /home/gavin/code/Projects/spyglass   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/nerdz-reading /home/gavin/code/Projects/nerdz-reading   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/defenestration /home/gavin/code/Tools/defenestration   # fuzzy
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/pelican-plugins /home/gavin/code/Tools/pelican-plugins   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/scratch/openroom /home/gavin/code/Tools/openroom   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/postcraft /home/gavin/code/MCP/postcraft   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/scratch /home/gavin/code/scratch/scratch   # exact
+python3 ~/scratch/ccm/ccm.py migrate /home/gavin/my_other_repos/temp /home/gavin/code/Temp/temp   # fuzzy
+
+# ===== DELETE =====
+/home/gavin/my_other_repos/cortex
+/home/gavin/my_other_repos/dopamine-racing
+/home/gavin/Development/go
+/home/gavin/Forked-Repos/Seelen
+/home/gavin/Forked-Repos/games-standalone
+/home/gavin/bjw-s-helm
+/home/gavin/bjw-s-labs-common-3.7.3
+/home/gavin/bjw-s-labs-helm
+/home/gavin/cluster-template
+/home/gavin/containers
+/home/gavin/flux-ws/default
+/home/gavin/flux-ws/pull
+/home/gavin/helm-charts
+/home/gavin/my_other_repos/game
+
+# moves: 65 | ccm: counted above | deletes listed

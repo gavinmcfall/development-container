@@ -1,0 +1,32 @@
+# Third-party apt repositories. install/apt-repos.sh adds each repo's signing key
+# + source list, then installs its .packages. {ARCH} -> dpkg --print-architecture.
+# Each repo provides EITHER:
+#   key_url     (ASCII-armored key, dearmored to .keyring)  OR
+#   keyring_url (already-binary keyring, downloaded to .keyring)
+# and EITHER:
+#   source      (literal sources.list line, written to /etc/apt/sources.list.d/<name>.list) OR
+#   source_url  (a .list file downloaded to .source_path)
+repos:
+  - name: 1password
+    key_url: https://downloads.1password.com/linux/keys/1password.asc
+    keyring: /usr/share/keyrings/1password-archive-keyring.gpg
+    source: "deb [arch={ARCH} signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/{ARCH} stable main"
+    packages:
+      - 1password-cli
+
+  - name: google-cloud
+    key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    keyring: /usr/share/keyrings/cloud.google.gpg
+    source: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+    packages:
+      - google-cloud-cli
+
+  # Tailscale here is the CLI only (`tailscale status/ping`); tailscaled
+  # connectivity is provided by the cluster Tailscale operator sidecar.
+  - name: tailscale
+    keyring_url: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
+    keyring: /usr/share/keyrings/tailscale-archive-keyring.gpg
+    source_url: https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list
+    source_path: /etc/apt/sources.list.d/tailscale.list
+    packages:
+      - tailscale

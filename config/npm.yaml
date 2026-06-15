@@ -1,0 +1,5 @@
+# Global npm packages, installed with the nvm-managed node (install/npm.sh).
+# These are AI CLIs used alongside Claude Code (codex used 26x in the audit).
+packages:
+  - "@openai/codex"
+  - "@google/gemini-cli"
