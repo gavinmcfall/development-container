@@ -33,11 +33,11 @@ needed): PHP stack, dotnet, python3.11, redis-tools.
 ## Build
 
 CI (`.github/workflows/build.yaml`) builds and pushes
-`ghcr.io/gavinmcfall/devpod:latest` + a `:sha-<short>` tag. Local smoke test:
+`ghcr.io/gavinmcfall/development-container:latest` + a `:sha-<short>` tag. Local smoke test:
 
 ```bash
-docker build -t devpod:test .
-docker run --rm -it devpod:test zsh
+docker build -t development-container:test .
+docker run --rm -it development-container:test zsh
 ```
 
 ## Sizing (measured, 3.6 days of profiling)
@@ -48,5 +48,5 @@ Per-session ~1.6 GB PSS; peak workload ~21 GB. Pod: **request 16 GB / limit
 ## Deploy
 
 Kubernetes manifests (HelmRelease, PVCs, Tailscale exposure) live in **home-ops**
-under `kubernetes/apps/home/devpod/` — GitOps, not here. This repo is the image
+under `kubernetes/apps/home/development-container/` — GitOps, not here. This repo is the image
 source only.
