@@ -75,6 +75,11 @@
 /.rediscli_history
 
 # --- per-repo regenerable bulk (also used by the code-PVC seed) ---
+# CAVEAT: '**/node_modules/' also matches the GLOBAL npm packages under
+# ~/.nvm/versions/node/*/lib/node_modules (codex, gemini, etc.), breaking those
+# CLIs after a whole-home seed. After the main home seed, re-seed ~/.nvm WITHOUT
+# excludes to restore them:
+#   rsync -aHAX --rsh=<transport> ~/.nvm/ <pod>:/home/gavin/.nvm/
 **/node_modules/
 **/.venv/
 **/__pycache__/
