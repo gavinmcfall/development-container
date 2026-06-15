@@ -39,7 +39,10 @@ RUN set -eux; arch="$(dpkg --print-architecture)"; \
 ENV PATH=/usr/local/go/bin:$PATH
 
 # ---- user (uid/gid match WSL2 so /home/gavin paths + PVC ownership work) -----
-RUN groupadd -g ${GID} ${USERNAME} \
+# ubuntu:24.04 ships a default 'ubuntu' user at uid/gid 1000 — remove it first.
+RUN userdel --remove ubuntu 2>/dev/null || true; \
+    groupdel ubuntu 2>/dev/null || true; \
+    groupadd -g ${GID} ${USERNAME} \
     && useradd -m -u ${UID} -g ${GID} -s /usr/bin/zsh ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME} \
     && chmod 0440 /etc/sudoers.d/${USERNAME}
@@ -47,10 +50,13 @@ USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 ENV HOME=/home/${USERNAME}
 
+# nvm/oh-my-zsh need bash — sourcing nvm.sh under dash with `set -u` fails.
+SHELL ["/bin/bash", "-c"]
+
 # ---- per-user toolchains (nvm/node, rust, uv, oh-my-zsh, claude, npm globals)
 # Installs into $HOME; on the real pod $HOME is the PVC, so this is a bootstrap —
 # the PVC seed (rsync + chezmoi apply) is the source of truth at runtime.
-RUN set -eux; \
+RUN set -ex; \
     nodev="$(yq '.node' /opt/devpod/config/languages.yaml)"; \
     curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash; \
     export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"; \

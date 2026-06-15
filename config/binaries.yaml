@@ -25,9 +25,11 @@ tools:
     kind: targz
     url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-{ARCH}.tar.gz"
     extract: [cilium]
+  # age embeds the version in its asset name, so the latest/download form can't
+  # serve it — pin the release tag (Renovate can bump this).
   - name: age
     kind: targz
-    url: "https://github.com/FiloSottile/age/releases/latest/download/age-v1.2.1-linux-{ARCH}.tar.gz"
+    url: "https://github.com/FiloSottile/age/releases/download/v1.3.1/age-v1.3.1-linux-{ARCH}.tar.gz"
     extract: [age/age, age/age-keygen]
   - name: talhelper
     kind: targz
