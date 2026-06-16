@@ -28,6 +28,7 @@ packages:
   - git-filter-repo
   - gh
   - vim-tiny
+  - nano
   - less
   - tree
   - htop
