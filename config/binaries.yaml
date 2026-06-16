@@ -40,3 +40,13 @@ tools:
   - name: sops
     kind: raw
     url: "https://github.com/getsops/sops/releases/download/v3.9.1/sops-v3.9.1.linux.{ARCH}"
+  # aws-vault — AWS credential helper (14x). Asset name matches {ARCH}; raw exe.
+  - name: aws-vault
+    kind: raw
+    url: "https://github.com/99designs/aws-vault/releases/download/v7.2.0/aws-vault-linux-{ARCH}"
+  # crictl — CRI debugging CLI for k8s/talos nodes (13x). Asset embeds version, so
+  # pin the tag (Renovate can bump). {ARCH} = amd64/arm64 matches the asset.
+  - name: crictl
+    kind: targz
+    url: "https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.36.0/crictl-v1.36.0-linux-{ARCH}.tar.gz"
+    extract: [crictl]

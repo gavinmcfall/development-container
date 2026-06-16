@@ -32,6 +32,20 @@ RUN sh /opt/devpod/install/apt.sh \
     && sh /opt/devpod/install/binaries.sh \
     && sh /opt/devpod/install/scripts.sh
 
+# ---- system post-config: Ubuntu-renamed binaries + rootless-podman defaults --
+# fd-find/bat install as fdfind/batcat on Ubuntu; expose the conventional names.
+# /etc/containers/* are SYSTEM paths (NOT shadowed by the home PVC at runtime):
+#   storage=vfs    -> rootless podman works with NO /dev/fuse in an unprivileged
+#                     pod (overlay+fuse-overlayfs can be enabled later if the
+#                     cluster ever provisions /dev/fuse).
+#   cgroupfs+file  -> no systemd/journald in the pod, so don't use them.
+RUN set -eux; \
+    ln -sf /usr/bin/fdfind /usr/local/bin/fd; \
+    ln -sf /usr/bin/batcat /usr/local/bin/bat; \
+    mkdir -p /etc/containers; \
+    printf '[storage]\ndriver = "vfs"\n' > /etc/containers/storage.conf; \
+    printf '[engine]\ncgroup_manager = "cgroupfs"\nevents_logger = "file"\n' > /etc/containers/containers.conf
+
 # ---- Go (system-wide; version from config/languages.yaml) -------------------
 RUN set -eux; arch="$(dpkg --print-architecture)"; \
     gov="$(yq '.go' /opt/devpod/config/languages.yaml)"; \
@@ -45,7 +59,9 @@ RUN userdel --remove ubuntu 2>/dev/null || true; \
     groupadd -g ${GID} ${USERNAME} \
     && useradd -m -u ${UID} -g ${GID} -s /usr/bin/zsh ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME} \
-    && chmod 0440 /etc/sudoers.d/${USERNAME}
+    && chmod 0440 /etc/sudoers.d/${USERNAME} \
+    && echo "${USERNAME}:100000:65536" > /etc/subuid \
+    && echo "${USERNAME}:100000:65536" > /etc/subgid
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 ENV HOME=/home/${USERNAME}

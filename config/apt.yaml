@@ -46,6 +46,23 @@ packages:
   - apache2-utils
   - mkdocs
   - direnv
+  # --- quality-of-life CLI (fd-find above installs as `fdfind` -> symlinked to
+  #     `fd` in the Dockerfile; `bat` installs as `batcat` -> symlinked too) ---
+  - fzf
+  - bat
+  - zoxide
+  - shellcheck
+  - hugo
+  # --- android tooling (adb 16x — handheld/bootible work) ---
+  - android-tools-adb
+  # --- rootless containers (podman; `docker` shim via podman-docker; uidmap
+  #     provides newuidmap/newgidmap for the user namespace; vfs storage so no
+  #     /dev/fuse is required in an unprivileged pod — see Dockerfile) ---
+  - podman
+  - podman-docker
+  - uidmap
+  - slirp4netns
+  - fuse-overlayfs
   # --- build toolchain + headers (compile deps for python/rust/native) ---
   - build-essential
   - cmake
