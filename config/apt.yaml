@@ -55,14 +55,9 @@ packages:
   - hugo
   # --- android tooling (adb 16x — handheld/bootible work) ---
   - android-tools-adb
-  # --- rootless containers (podman; `docker` shim via podman-docker; uidmap
-  #     provides newuidmap/newgidmap for the user namespace; vfs storage so no
-  #     /dev/fuse is required in an unprivileged pod — see Dockerfile) ---
-  - podman
-  - podman-docker
-  - uidmap
-  - slirp4netns
-  - fuse-overlayfs
+  # NOTE: no in-pod container runtime — Talos nodes disable user namespaces
+  # (user.max_user_namespaces=0), so rootless/root podman can't run containers.
+  # Build images in CI (GitHub Actions → GHCR/zot); inspect with skopeo (above).
   # --- build toolchain + headers (compile deps for python/rust/native) ---
   - build-essential
   - cmake
