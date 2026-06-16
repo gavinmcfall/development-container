@@ -7,6 +7,12 @@
 # live on the PVC, NOT the image (see devpod-design.md). Build in CI -> zot.
 FROM ubuntu:24.04
 
+# Links the GHCR package to this repo (so Actions inherits write access + the
+# package page shows the source). Required because the package was first created
+# by a manual push and was left unlinked.
+LABEL org.opencontainers.image.source="https://github.com/gavinmcfall/development-container" \
+      org.opencontainers.image.description="Gavin's Claude Code dev environment (Ubuntu 24.04)"
+
 ARG USERNAME=gavin
 ARG UID=1000
 ARG GID=1000
