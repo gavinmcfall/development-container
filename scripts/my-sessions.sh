@@ -29,6 +29,7 @@ open spyglass      /home/gavin/code/Projects/spyglass                        "Sp
 open manga-stack   /home/gavin/code/home-ops                                 "Manga Stack"
 open otel-life     /home/gavin/code/home-ops/.claude/worktrees/otel-life     "Otel Life"
 open realmstack    /home/gavin/code/Realmstack/Realmstack                    "Realmstack"
+open bootible      /home/gavin/code/Projects/handheld-gaming/bootible        "54268c8c-cc3b-497d-9fb6-382893119a80"
 
 tmux select-window -t :1 2>/dev/null || true
 echo "done — switch windows with the top bar (click), Ctrl+b <number>, or Ctrl+b w"
