@@ -20,6 +20,9 @@ packages:
   - tzdata
   - bash-completion
   - openssh-client
+  # uuid-runtime provides `uuidgen` — used by the worklog hook for session IDs
+  # (found missing by a hook fire-drill, not by file-presence diffs).
+  - uuid-runtime
   # --- CLI workhorses (git 8946, gh 2209, jq 316, sqlite3 442) ---
   - zsh
   - tmux
