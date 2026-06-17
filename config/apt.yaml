@@ -26,6 +26,10 @@ packages:
   - git
   - git-lfs
   - git-filter-repo
+  # git-crypt — REQUIRED to commit to the claude-config repo (master-prompts/**,
+  # skills/inner-ally/**, CLAUDE.md, scripts/** are encrypted). Was a runtime apt
+  # install that pod rolls kept wiping (it's on the ephemeral rootfs) → bake it in.
+  - git-crypt
   - gh
   - vim-tiny
   - nano
@@ -90,7 +94,8 @@ packages:
   - netcat-openbsd
   - nfs-common
   - cifs-utils
-  - rclone
+  # rclone is installed via scripts.yaml (current release), NOT apt — Ubuntu's
+  # apt rclone (v1.60) is REJECTED by Backblaze B2 ("API version number 1").
   # --- fonts ---
   - fonts-firacode
   - fonts-liberation
