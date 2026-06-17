@@ -32,6 +32,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY config  /opt/devpod/config
 COPY install /opt/devpod/install
 
+# ---- devpod doctor — proactive gap-finder (run on demand or via a CronJob) ---
+COPY scripts/doctor.sh /usr/local/bin/devpod-doctor
+RUN chmod +x /usr/local/bin/devpod-doctor
+
 # ---- system packages, third-party repos, binaries, install-script tools -----
 RUN sh /opt/devpod/install/apt.sh \
     && sh /opt/devpod/install/apt-repos.sh \
