@@ -17,8 +17,12 @@
 
 set -uo pipefail
 
-FAILS=0 WARNS=0 OKS=0
-fail(){ echo "  [FAIL] $*"; FAILS=$((FAILS+1)); }
+# --notify: on FAIL, POST the failures to $DISCORD_DOCTOR_WEBHOOK (used by the cron).
+NOTIFY=0; [ "${1:-}" = "--notify" ] && NOTIFY=1
+
+FAILS=0 WARNS=0 OKS=0 FAILBUF=""
+fail(){ echo "  [FAIL] $*"; FAILS=$((FAILS+1)); FAILBUF="$FAILBUF
+[FAIL] $*"; }
 warn(){ echo "  [WARN] $*"; WARNS=$((WARNS+1)); }
 ok(){   echo "  [ ok ] $*"; OKS=$((OKS+1)); }
 
@@ -105,4 +109,16 @@ mntc=$(grep -rIl '/mnt/c\|wsl.localhost\|/mnt/wsl' "$CLAUDE_DIR/settings.json" "
 
 # ── summary ──────────────────────────────────────────────────────────────────
 echo "==== summary: $OKS ok · $WARNS warn · $FAILS fail ===="
+
+# ── optional Discord alert (only on failure) ─────────────────────────────────
+if [ "$NOTIFY" = "1" ] && [ "$FAILS" -gt 0 ] && [ -n "${DISCORD_DOCTOR_WEBHOOK:-}" ] \
+   && command -v curl >/dev/null && command -v jq >/dev/null; then
+  body=$(printf '%s' "$FAILBUF" | head -c 1500)
+  payload=$(jq -Rn --arg c ":rotating_light: **devpod-doctor: $FAILS failure(s)** on $(hostname)
+\`\`\`$body
+\`\`\`" '{content:$c}')
+  curl -fsS -m 15 -X POST -H "Content-Type: application/json" -d "$payload" "$DISCORD_DOCTOR_WEBHOOK" >/dev/null 2>&1 \
+    && echo "(posted to Discord)" || echo "(Discord post failed)"
+fi
+
 [ "$FAILS" -eq 0 ] && exit 0 || exit 1
