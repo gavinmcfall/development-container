@@ -21,15 +21,14 @@ open(){  # name  cwd  session-name
   fi
 }
 
-open devcontainer  /home/gavin/code/scratch                                 "Dev Container"
-open lighthouse    /home/gavin/code/Projects/lighthouse                      "lighthouse-main"
-open nerdz-reading /home/gavin/code/Projects/nerdz-reading                   "Nerdz Reading"
-open mempalace     /home/gavin/code/Projects/mempalace                       "Mempalace"
-open spyglass      /home/gavin/code/Projects/spyglass                        "Spyglass"
-open manga-stack   /home/gavin/code/home-ops                                 "Manga Stack"
-open otel-life     /home/gavin/code/home-ops/.claude/worktrees/otel-life     "Otel Life"
-open realmstack    /home/gavin/code/Realmstack/Realmstack                    "Realmstack"
-open bootible      /home/gavin/code/Projects/handheld-gaming/bootible        "54268c8c-cc3b-497d-9fb6-382893119a80"
+# Snapshot of the windows open on 2026-06-18 (resume by session UUID — the jsonl
+# survives pod rolls on the PVC, so this reopens the exact conversations).
+open home-ops     /home/gavin/code/scratch                     "daac4f81-49aa-4e53-be7a-bedff62c9a61"
+open bootible     /home/gavin/code/Projects/handheld-gaming    "dfef9ac9-4bb9-405f-a726-8fe78ac3c3a8"
+open sc-bridge    "/home/gavin/code/SC Bridge"                 "150b6ba5-7ecf-4bb2-b9e1-d14fe48b53f3"
+open manga-stack  /home/gavin/code/home-ops                    "5b987018-24dd-4b8b-8a81-cc5bfac1e338"
+open nerdz        /home/gavin/code/nerdz                       "4744a6b3-541a-46fc-8f20-8073f3080965"
+open sc-bridge-2  "/home/gavin/code/SC Bridge"                 "1a9dd937-9b7e-421a-9400-73554423d70c"
 
 tmux select-window -t :1 2>/dev/null || true
 echo "done — switch windows with the top bar (click), Ctrl+b <number>, or Ctrl+b w"
