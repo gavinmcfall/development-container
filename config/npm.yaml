@@ -3,3 +3,7 @@
 packages:
   - "@openai/codex"
   - "@google/gemini-cli"
+  # any-buddy: Claude Code companion pet, driven by the `any-buddy apply` hook in
+  # settings.json. Was only listed in the (disabled) Brewfile, so the build never
+  # installed it and devpod-doctor flagged it as a missing hook command.
+  - "any-buddy"
